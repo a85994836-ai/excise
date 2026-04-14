@@ -1,6 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const numbersContainer = document.querySelector('.numbers-container');
     const generateBtn = document.querySelector('.generate-btn');
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+
+    // Theme toggle handler
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
 
     function generateLottoNumbers() {
         const numbers = [];
