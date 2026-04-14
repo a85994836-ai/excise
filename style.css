@@ -21,8 +21,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 2rem 0;
+    flex-direction: column;
+    gap: 2rem;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -34,9 +37,12 @@ body {
     text-align: center;
     position: relative;
     transition: background-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
 }
 
-h1 {
+h1, h2 {
     color: var(--text-color);
     margin-bottom: 2rem;
 }
@@ -96,4 +102,66 @@ h1 {
 
 .generate-btn:hover {
     background-color: #45a049;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+[data-theme="dark"] .form-group input, 
+[data-theme="dark"] .form-group textarea {
+    border-color: #444;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #1976D2;
 }
